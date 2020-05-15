@@ -42,6 +42,9 @@ class Conversor:
                     addr = addr + str(conv_val % 3)
                     conv_val = conv_val // 3
 
+                while len(addr) < 4:
+                    addr = addr + "0"
+
             if "1" not in addr and len(addr) == 4:
                 addr_d4 = addr.replace("0", "1").replace("2", "0")
             if len(addr) == 4:

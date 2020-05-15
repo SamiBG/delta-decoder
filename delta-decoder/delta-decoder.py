@@ -6,7 +6,7 @@ short_options = "hi:"
 long_options = ["help", "input="]
 
 # Default address
-conv_val = "1001"
+conv_val = "2"
 
 # Get command-line arguments
 full_cmd_arguments = sys.argv
@@ -21,7 +21,7 @@ except getopt.error as err:
 
 for current_argument, current_value in arguments:
     if current_argument in ("-h", "--help"):
-        print("\nDigital Address conversor for Marklin Delta decoders with 4 or 8 DIP-switches.\n\nOptions:\n\t -i, --input= \t The digital address or DIP switch configuration to convert.\n\t -h, --help \t Displays this help and exits.")
+        print("\nDigital Address converter for Marklin Delta decoders with 4 or 8 DIP-switches.\n\nOptions:\n\t -i, --input= \t The digital address or DIP switch configuration to convert.\n\t -h, --help \t Displays this help and exits.")
         quit()
     elif current_argument in ("-i", "--input"):
         conv_val = current_value
