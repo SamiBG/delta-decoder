@@ -6,14 +6,14 @@ class Conversor:
         size = len(conv_val)
         i, addr = 0, 0
 
-        if size == 4:
+        if size == 4 and self.check_address(conv_val):
             conv_val = conv_val.replace("0", "2").replace("1", "0")
             while i < size:
                 addr += int(conv_val[i]) * pow(3, i)
                 i += 1
             return addr
 
-        elif size == 8:
+        elif size == 8 and self.check_address(conv_val):
             while i+1 < size:
                 delta = int(conv_val[i])
                 dib = int(conv_val[i+1])
@@ -60,3 +60,12 @@ class Conversor:
             return {"D4": addr_d4, "D8": addr_d8}
         else:
             raise Exception("Invalid value")
+
+    def check_address(input_val):
+        i = 0
+        while i < len(input_val):
+            if input_val[i] != "1" and input_val[i] != "0":
+                return False
+            i = i + 1
+        return True
+
